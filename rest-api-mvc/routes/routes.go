@@ -22,9 +22,10 @@ func New() *echo.Echo {
 
 	e.GET("/users", controllers.GetUserController, middlewares.JWTMiddleware())
 	e.POST("/users", controllers.AddUserController)
+	e.POST("/users/alamat", controllers.AddUserAlamatController)
 
 	product := e.Group("/products", middlewares.JWTMiddleware())
 	product.GET("", controllers.GetProductController)
-	product.POST("", controllers.GetUserController)
+	product.POST("", controllers.AddProductController)
 	return e
 }

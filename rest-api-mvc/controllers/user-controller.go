@@ -1,7 +1,9 @@
 package controllers
 
 import (
+	"log"
 	"net/http"
+	"rest/mvc/controllers/requests"
 	"rest/mvc/controllers/responses"
 	"rest/mvc/helpers"
 	"rest/mvc/middlewares"
@@ -59,4 +61,17 @@ func AddUserController(c echo.Context) error {
 
 	//response message berhasil
 	return c.JSON(http.StatusOK, helpers.SuccessResponse("success insert data"))
+}
+
+func AddUserAlamatController(c echo.Context) error {
+	input := new(requests.UserRequest)
+	errBind := c.Bind(&input)
+	if errBind != nil {
+		return c.JSON(http.StatusBadRequest, helpers.FailedResponse("error bind "+errBind.Error()))
+	}
+
+	log.Println("user req:", input)
+	log.Println("user req jalan:", input.Alamat.Jalan)
+	//response message berhasil
+	return c.JSON(http.StatusOK, helpers.SuccessWithDataResponse("success", input))
 }

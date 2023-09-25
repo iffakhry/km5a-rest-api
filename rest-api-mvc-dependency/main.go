@@ -10,8 +10,13 @@ import (
 
 func main() {
 	e := echo.New()
+	//load configuration
 	var cfg = configs.InitConfig()
+
+	// membuat koneksi ke db
 	dbMysql := configs.InitMysqlConn(cfg)
+
+	// init routing/endpoint
 	routes.InitRouter(e, dbMysql)
 
 	e.Logger.Fatal(e.Start(fmt.Sprintf(":%d", cfg.SERVERPORT)))

@@ -10,6 +10,7 @@ import (
 )
 
 func InitRouter(e *echo.Echo, db *gorm.DB) {
+	// proses pembuatan object dan inject
 	userRepo := repositories.NewUserRepository(db)
 	userController := controllers.NewUserController(*userRepo)
 
@@ -21,5 +22,6 @@ func InitRouter(e *echo.Echo, db *gorm.DB) {
 		Format: "[${time_rfc3339}] status=${status} method=${method} uri=${uri} latency=${latency_human} \n",
 	}))
 
+	//endpoint
 	e.GET("/users", userController.GetUserController)
 }
