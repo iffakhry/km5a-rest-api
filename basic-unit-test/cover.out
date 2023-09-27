@@ -1,0 +1,9 @@
+mode: set
+fakhry/unit-test/calculate/addition.go:3.29,5.2 1 0
+fakhry/unit-test/calculate/addition.go:7.29,9.2 1 0
+fakhry/unit-test/calculate/check-prime.go:5.34,6.16 1 1
+fakhry/unit-test/calculate/check-prime.go:6.16,8.3 1 1
+fakhry/unit-test/calculate/check-prime.go:9.2,9.56 1 1
+fakhry/unit-test/calculate/check-prime.go:9.56,10.20 1 1
+fakhry/unit-test/calculate/check-prime.go:10.20,12.4 1 1
+fakhry/unit-test/calculate/check-prime.go:14.2,14.13 1 1

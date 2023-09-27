@@ -6,7 +6,6 @@ import (
 	"rest/mvc/controllers/requests"
 	"rest/mvc/controllers/responses"
 	"rest/mvc/helpers"
-	"rest/mvc/middlewares"
 	"rest/mvc/models"
 	"rest/mvc/repositories"
 
@@ -19,10 +18,10 @@ func GetUserController(c echo.Context) error {
 	// // select * from users;
 	// tx := config.DB.Find(&datausers)
 
-	idToken := middlewares.ExtractTokenUserId(c)
-	if idToken != 1 {
-		return c.JSON(http.StatusUnauthorized, helpers.FailedResponse("unauthorized"))
-	}
+	// idToken := middlewares.ExtractTokenUserId(c)
+	// if idToken != 1 {
+	// 	return c.JSON(http.StatusUnauthorized, helpers.FailedResponse("unauthorized"))
+	// }
 
 	responseData, err := repositories.SelectUsers()
 	if err != nil {

@@ -20,7 +20,8 @@ func New() *echo.Echo {
 
 	e.POST("/login", controllers.LoginController)
 
-	e.GET("/users", controllers.GetUserController, middlewares.JWTMiddleware())
+	// e.GET("/users", controllers.GetUserController, middlewares.JWTMiddleware())
+	e.GET("/users", controllers.GetUserController)
 	e.POST("/users", controllers.AddUserController)
 	e.POST("/users/alamat", controllers.AddUserAlamatController)
 
