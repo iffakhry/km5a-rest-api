@@ -13,7 +13,7 @@ type userUsecase struct {
 func (uc *userUsecase) Create(data user.Core) error {
 	//validasi
 	if data.Email == "" || data.Password == "" {
-		return errors.New("error. email dan password harus diisi")
+		return errors.New("[validation] error. email dan password harus diisi")
 	}
 
 	err := uc.userRepository.Insert(data)

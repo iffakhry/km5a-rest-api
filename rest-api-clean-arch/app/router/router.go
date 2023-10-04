@@ -1,7 +1,7 @@
 package router
 
 import (
-	"fakhry/clean-arch/features/user/controller"
+	"fakhry/clean-arch/features/user/handler"
 	"fakhry/clean-arch/features/user/repository"
 	"fakhry/clean-arch/features/user/usecase"
 
@@ -12,7 +12,7 @@ import (
 func InitRouter(db *gorm.DB, e *echo.Echo) {
 	userRepository := repository.New(db)
 	userUsecase := usecase.New(userRepository)
-	userController := controller.New(userUsecase)
+	userController := handler.New(userUsecase)
 
 	e.POST("/users", userController.CreateUser)
 }

@@ -1,4 +1,4 @@
-package controller
+package handler
 
 type UserRequest struct {
 	Name     string `json:"name" form:"name"`
